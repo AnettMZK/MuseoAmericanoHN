@@ -179,3 +179,8 @@ DatePicker {
     -fx-text-fill: #edeae2;
 }
 
+.text-area .content {
+    -fx-background-color: #a19c90;
+    -fx-font-family: "Bodoni Moda 9pt";
+}
+

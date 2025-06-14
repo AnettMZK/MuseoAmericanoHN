@@ -15,6 +15,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -43,6 +44,14 @@ public class TicketsController implements Initializable {
     private Label totalTicket_lb;
     @FXML
     private Button add_btn;
+    @FXML
+    private ImageView exhibitionImage_iv;
+    @FXML
+    private TableView<?> availableRooms_tv;
+    @FXML
+    private Label dateOfVisit_lb;
+    @FXML
+    private Label museumInfo_lb;
 
     /**
      * Initializes the controller class.

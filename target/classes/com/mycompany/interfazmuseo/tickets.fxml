@@ -11,6 +11,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -117,7 +119,25 @@
           </Tab>
           <Tab text="Validar Entrada">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="460.0" layoutY="604.0" prefHeight="24.0" prefWidth="336.0" styleClass="textStyle" text="Con este código QR tendrá acceso a nuestras " />
+                        <Label layoutX="455.0" layoutY="622.0" prefHeight="24.0" prefWidth="354.0" styleClass="textStyle" text="instalaciones, por favor guarde la información" />
+                        <Label layoutX="749.0" layoutY="65.0" text="Salas disponibles" />
+                        <ImageView fx:id="exhibitionImage_iv" fitHeight="364.0" fitWidth="270.0" layoutX="315.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/exposicionPrueba.jpeg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="availableRooms_tv" layoutX="628.0" layoutY="108.0" prefHeight="279.0" prefWidth="445.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <Label fx:id="dateOfVisit_lb" layoutX="353.0" layoutY="204.0" styleClass="textInfo" text="30 DE MAYO" />
+                        <Label fx:id="museumInfo_lb" layoutX="320.0" layoutY="238.0" styleClass="textInfo" text="Museo de Historia" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

@@ -165,18 +165,18 @@ DatePicker {
 
 .table-view {
     -fx-background-color: #edeae2;
-    -fx-table-cell-border-color: #d4a373;
-     -fx-font-family: "Bodoni Moda 9pt";
+    -fx-table-cell-border-color: #231f20;
+    -fx-font-family: "Bodoni Moda 9pt";
     -fx-font-size: 14px;
 }
 
 .table-view .column-header-background {
-    -fx-background-color: #a19c90; /* Fondo del encabezado */
+    -fx-background-color: transparent; /* Fondo del encabezado */
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #d4a373;
-    -fx-text-fill: #edeae2;
+    -fx-background-color: #a19c90;
+    -fx-text-fill: #353331;
 }
 
 .text-area .content {

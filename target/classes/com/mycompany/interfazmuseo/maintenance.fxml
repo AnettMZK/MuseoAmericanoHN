@@ -150,7 +150,7 @@
                         </AnchorPane>
                         <Label layoutX="13.0" layoutY="12.0" styleClass="textStyle" text="Gestión de Colecciones" />
                         <Separator layoutX="-1.0" layoutY="538.0" prefHeight="11.0" prefWidth="669.0" />
-                        <Label fx:id="museumWarning_lb1" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="554.0" prefHeight="31.0" prefWidth="553.0" text="WARINIGG" />
+                        <Label fx:id="collectionsWarning_lb" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="554.0" prefHeight="31.0" prefWidth="553.0" text="WARINIGG" />
                         <Button fx:id="collectionsSave_btn1" layoutX="45.0" layoutY="604.0" mnemonicParsing="false" onAction="#saveCollectionsInfo" text="Guardar" />
                         <Button fx:id="collectionsCancel_btn" layoutX="444.0" layoutY="604.0" mnemonicParsing="false" onAction="#cancelCollectionsInfo" text="Cancelar" />
                      </children></AnchorPane>
@@ -168,6 +168,10 @@
                               <Label layoutX="27.0" layoutY="98.0" text="Nombre científico: " />
                               <TextField fx:id="commonNameSpecies_tf" layoutX="28.0" layoutY="216.0" prefHeight="36.0" prefWidth="570.0" />
                               <Label layoutX="30.0" layoutY="185.0" text="Nombre común: " />
+                              <Label layoutX="33.0" layoutY="436.0" text="Fecha de extinción: " />
+                              <Label layoutX="392.0" layoutY="438.0" text="Época de vida: " />
+                              <TextField fx:id="periodOfLife_tf" layoutX="389.0" layoutY="472.0" prefHeight="36.0" prefWidth="195.0" />
+                              <TextField fx:id="extinctionDate_tf" layoutX="32.0" layoutY="480.0" prefHeight="36.0" prefWidth="195.0" />
                            </children></AnchorPane>
                         <AnchorPane layoutX="709.0" layoutY="-1.0" prefHeight="677.0" prefWidth="580.0" styleClass="tableViewTab">
                            <children>
@@ -192,6 +196,9 @@
                         </AnchorPane>
                         <Label layoutX="13.0" layoutY="12.0" styleClass="textStyle" text="Gestión de Especies" />
                         <Separator layoutX="-1.0" layoutY="538.0" prefHeight="11.0" prefWidth="669.0" />
+                        <Label layoutX="27.0" layoutY="271.0" text="Descripción:" />
+                        <TextArea fx:id="speciesDescription_ta" layoutX="27.0" layoutY="302.0" prefHeight="129.0" prefWidth="569.0" />
+                        <Label fx:id="collectionsWarning_lb1" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="554.0" prefHeight="31.0" prefWidth="553.0" text="WARINIGG" />
                      </children></AnchorPane>
                </content>
             </Tab>
@@ -203,6 +210,12 @@
                            <children>
                               <Button fx:id="themesCancel_btn" layoutX="444.0" layoutY="604.0" mnemonicParsing="false" onAction="#cancelThemesInfo" text="Cancelar" />
                               <Button fx:id="themesSave_btn" layoutX="45.0" layoutY="604.0" mnemonicParsing="false" onAction="#saveThemesInfo" text="Guardar" />
+                              <Label layoutX="27.0" layoutY="98.0" text="Nombre: " />
+                              <TextField fx:id="themesName_tf" layoutX="28.0" layoutY="129.0" prefHeight="36.0" prefWidth="570.0" />
+                              <TextArea fx:id="themesDescription_ta" layoutX="28.0" layoutY="216.0" prefHeight="200.0" prefWidth="569.0" />
+                              <Label layoutX="30.0" layoutY="185.0" text="Descripción:" />
+                              <TextField fx:id="themesPeriod_tf" layoutX="35.0" layoutY="458.0" prefHeight="36.0" prefWidth="156.0" />
+                              <Label layoutX="35.0" layoutY="418.0" text="Época ambientada:" />
                            </children></AnchorPane>
                         <AnchorPane layoutX="709.0" layoutY="-1.0" prefHeight="677.0" prefWidth="580.0" styleClass="tableViewTab">
                            <children>
@@ -227,6 +240,7 @@
                         </AnchorPane>
                         <Label layoutX="13.0" layoutY="12.0" styleClass="textStyle" text="Gestión de Temáticas" />
                         <Separator layoutX="1.0" layoutY="538.0" prefHeight="11.0" prefWidth="669.0" />
+                        <Label fx:id="themesWarning_lb" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="554.0" prefHeight="31.0" prefWidth="553.0" text="WARINIGG" />
                      </children></AnchorPane>
                </content>
             </Tab>
@@ -259,6 +273,14 @@
                            <children>
                               <Button fx:id="pricesAndRatesCancel_btn" layoutX="444.0" layoutY="604.0" mnemonicParsing="false" onAction="#cancelPricesAndRatesInfo" text="Cancelar" />
                               <Button fx:id="pricesAndRatesSave_btn" layoutX="45.0" layoutY="604.0" mnemonicParsing="false" onAction="#savePricesAndRatesInfo" text="Guardar" />
+                              <Label layoutX="27.0" layoutY="98.0" text="Precio general:" />
+                              <TextField fx:id="generalPrice_tf" layoutX="28.0" layoutY="129.0" prefHeight="36.0" prefWidth="570.0" />
+                              <Label layoutX="31.0" layoutY="185.0" text="Precio especial (domingos): " />
+                              <TextField fx:id="specialPrice_tf" layoutX="28.0" layoutY="216.0" prefHeight="36.0" prefWidth="570.0" />
+                              <ChoiceBox fx:id="cardType_cb" layoutX="395.0" layoutY="302.0" prefHeight="24.0" prefWidth="203.0" />
+                              <Label layoutX="405.0" layoutY="271.0" text="Tipo de tarjeta: " />
+                              <TextField fx:id="commissions_tf" layoutX="28.0" layoutY="302.0" prefHeight="36.0" prefWidth="191.0" />
+                              <Label layoutX="27.0" layoutY="271.0" text="Comisiones: " />
                            </children></AnchorPane>
                         <Label layoutX="13.0" layoutY="12.0" styleClass="textStyle" text="Gestión de Precios y Tarifas" />
                         <Separator layoutX="-1.0" layoutY="538.0" prefHeight="11.0" prefWidth="669.0" />

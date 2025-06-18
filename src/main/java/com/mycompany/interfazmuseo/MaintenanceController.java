@@ -4,8 +4,14 @@
  */
 package com.mycompany.interfazmuseo;
 
+import controllers.MuMuseosJpaController;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,10 +19,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import persistence.MuMuseos;
 
 /**
  * FXML Controller class
@@ -32,7 +42,7 @@ public class MaintenanceController implements Initializable {
     @FXML
     private ChoiceBox<?> typeMuseum_cb;
     @FXML
-    private TableView<?> museumRegister_tv;
+    private TableView<MuMuseos> museumRegister_tv;
     @FXML
     private TableView<?> roomsRegister_tv;
     @FXML
@@ -143,6 +153,8 @@ public class MaintenanceController implements Initializable {
     private ChoiceBox<?> cardType_cb;
     @FXML
     private TextField commissions_tf;
+    
+     private MuMuseosJpaController MuseumJpa = new MuMuseosJpaController();
 
     /**
      * Initializes the controller class.
@@ -150,6 +162,7 @@ public class MaintenanceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        uploadMuseumData();
     }    
 
     
@@ -170,6 +183,38 @@ public class MaintenanceController implements Initializable {
     private void cancelMuseumInfo(ActionEvent event) {
     }
     
+   public void uploadMuseumData() {
+    museumRegister_tv.getColumns().clear();
+
+    TableColumn<MuMuseos, Integer> id = new TableColumn<>("ID");
+    id.setCellValueFactory(new PropertyValueFactory<>("idMuseo"));
+
+    TableColumn<MuMuseos, String> nombre = new TableColumn<>("Nombre");
+    nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+
+    TableColumn<MuMuseos, String> tipo = new TableColumn<>("Tipo");
+    tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+
+    TableColumn<MuMuseos, String> ubicacion = new TableColumn<>("Ubicación");
+    ubicacion.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
+
+    TableColumn<MuMuseos, String> director = new TableColumn<>("Director");
+    director.setCellValueFactory(new PropertyValueFactory<>("nombreDirector"));
+
+    TableColumn<MuMuseos, LocalDate> fecha = new TableColumn<>("Fecha Fundación");
+    fecha.setCellValueFactory(new PropertyValueFactory<>("fechaFundacion"));
+    
+    TableColumn<MuMuseos, String> sitioWeb = new TableColumn<>("Sitio Web");
+    sitioWeb.setCellValueFactory(new PropertyValueFactory<>("sitioWeb"));
+
+    museumRegister_tv.getColumns().addAll(id, nombre, tipo, ubicacion, director, fecha, sitioWeb);
+
+    Collection museos = MuseumJpa.findMuseoEntities();
+    ObservableList<MuMuseos> museosFX = FXCollections.observableArrayList(museos);
+    museumRegister_tv.setItems(museosFX);
+}
+
+    
     
     /* GESTION DE SALAS */
     @FXML
@@ -187,6 +232,8 @@ public class MaintenanceController implements Initializable {
     @FXML
     private void cancelRoomInfo(ActionEvent event) {
     }
+    
+    public void uploadRoomsData() { }
 
     /* GESTION DE COLECCIONES */
     @FXML
@@ -196,7 +243,6 @@ public class MaintenanceController implements Initializable {
     @FXML
     private void editCollectionsnfo(ActionEvent event) {
     }
-
 
     @FXML
     private void cancelCollectionsInfo(ActionEvent event) {
@@ -222,6 +268,8 @@ public class MaintenanceController implements Initializable {
     @FXML
     private void editSpeciesInfo(ActionEvent event) {
     }
+    
+    public void uploadSpeciesData() { }
 
     /* GESTION DE TEMAS */
     @FXML
@@ -239,6 +287,9 @@ public class MaintenanceController implements Initializable {
     @FXML
     private void deleteThemesInfo(ActionEvent event) {
     }
+    
+    public void uploadThemesData() { }
+
 
     
     /* GESTION DE PRECIOS Y TARIFAS */
@@ -257,5 +308,8 @@ public class MaintenanceController implements Initializable {
     @FXML
     private void savePricesAndRatesInfo(ActionEvent event) {
     }
+    
+    public void uploadPricesAndRatesData() { }
+
     
 }

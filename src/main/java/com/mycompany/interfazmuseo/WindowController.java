@@ -52,7 +52,7 @@ public class WindowController implements Initializable {
     
     @FXML
     private void maintenceOnAction(ActionEvent event) {
-        loadView("maintenance");
+        loadView("Maintenance");
     }
 
     @FXML

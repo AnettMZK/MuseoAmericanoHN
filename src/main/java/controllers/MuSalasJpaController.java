@@ -94,5 +94,20 @@ public class MuSalasJpaController {
             }
         }
     }
+    public MuSalas findById(int id) {
+        EntityManager em = this.getEmf().createEntityManager();
+
+        try {
+            MuSalas sala = em.find(MuSalas.class, id);
+            if (sala != null) {
+                em.refresh(sala);
+            }
+            return sala;
+        } finally {
+            em.close();
+        }
+    }
+
+
 
 }

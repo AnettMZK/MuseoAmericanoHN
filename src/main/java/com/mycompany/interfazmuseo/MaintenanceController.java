@@ -381,8 +381,8 @@ public class MaintenanceController implements Initializable {
                 selectedMuseum.setUbicacion(museumLocation_tf.getText());
                 selectedMuseum.setNombreDirector(managername_tf.getText());
                 selectedMuseum.setSitioWeb(museumWebURL_tf.getText());
-                selectedMuseum.setFechaFundacion(date);
-                selectedMuseum.setTipo(typeSelected);
+                //selectedMuseum.setFechaFundacion(date);
+                //selectedMuseum.setTipo(typeSelected);
 
                 MuseumJpa.edit(selectedMuseum);
                 uploadMuseumData();
